@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const host = process.env.HOSTNAME || "0.0.0.0";
+const host = process.env.HOST || "0.0.0.0";
 const port = Number(process.env.PORT || 3000);
 const root = __dirname;
 
@@ -16,9 +16,7 @@ const contentTypes = {
   ".png": "image/png",
   ".svg": "image/svg+xml",
   ".txt": "text/plain; charset=utf-8",
-  ".ttf": "font/ttf",
   ".webmanifest": "application/manifest+json; charset=utf-8",
-  ".webp": "image/webp",
   ".xml": "application/xml; charset=utf-8"
 };
 
@@ -56,7 +54,9 @@ const serveFile = (requestPath, response) => {
       {
         "Cache-Control": cacheControl,
         "Content-Type": contentTypes[ext] || "application/octet-stream",
-        "X-Content-Type-Options": "nosniff"
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
       },
       body
     );

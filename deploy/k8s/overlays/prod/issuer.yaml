@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod-cloudflare
+  namespace: grokvoice
+spec:
+  acme:
+    email: gateszhang92@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-prod-cloudflare-account-key
+    solvers:
+      - dns01:
+          cloudflare:
+            email: gateszhang92@gmail.com
+            apiKeySecretRef:
+              name: cloudflare-global-api-key
+              key: api-key

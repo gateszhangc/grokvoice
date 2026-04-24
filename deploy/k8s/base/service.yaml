@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grokvoice
+  labels:
+    app.kubernetes.io/name: grokvoice
+    app.kubernetes.io/part-of: grokvoice
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: grokvoice
+    app.kubernetes.io/part-of: grokvoice
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000

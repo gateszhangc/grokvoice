@@ -1,0 +1,11 @@
+# Signal Eclipse
+
+Signal Eclipse treats voice interfaces as precision instruments suspended in darkness. Space is not empty here; it is calibrated, pressurized, and meticulously carved so each contour feels deliberate. Forms should read like high-grade aerospace panels and studio hardware, shaped with painstaking attention to edge, weight, and restraint. The work must feel obsessively refined, as if every radius, gap, and line was tuned over countless drafts by a designer operating at master level.
+
+Color is almost absent until it matters. The palette leans into obsidian, graphite, vapor gray, and a single cold electric highlight that behaves like a monitored signal rather than decoration. Light should appear trapped under the surface, glowing through fogged glass and metal seams. This is not spectacle for its own sake; it is the product of deep expertise and careful control, with every luminous accent placed to imply intelligence, speed, and hidden depth.
+
+Composition should move like a console waking up: broad silence first, then measured pulses of information. Surfaces may overlap, but never sloppily. The hierarchy must feel engineered, with large type acting like structural signage and small mono labels functioning as instrument markings. The final result should look painstakingly crafted, never generic, and never like an off-the-shelf landing page assembled from familiar blocks.
+
+Rhythm comes from repetition and modulation. Waveforms, rings, and rails are allowed, but only when rendered with crisp discipline and enough negative space to make them breathe. Repeated marks should suggest captured sound, telemetry, or controlled resonance. Every module must feel labored over with care, carrying the density of something built by hand with deep technical taste rather than generated in a hurry.
+
+Typography should be reduced, sharpened, and made architectural. The wordmark and iconography must feel like part of the product casing itself: sleek, condensed, and quietly forceful. Minimal text, maximum intent. The outcome should present as a pristine artifact of expert craftsmanship, something polished to exhibition quality while remaining calm, severe, and unmistakably modern.

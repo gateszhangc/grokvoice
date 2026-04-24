@@ -1,8 +1,8 @@
 {
-  "name": "artemis-2-wallpaper",
+  "name": "grokvoice-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Static Artemis II wallpaper site built from publicly released NASA imagery.",
+  "description": "Static Grok Voice landing page with local browser tests.",
   "scripts": {
     "start": "node server.js",
     "test": "playwright test",

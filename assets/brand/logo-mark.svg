@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Grok Voice mark</title>
+  <desc id="desc">Circular voice signal icon with dark background.</desc>
+  <defs>
+    <linearGradient id="ring" x1="128" y1="110" x2="392" y2="402" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F9FF"/>
+      <stop offset="1" stop-color="#6F8BFF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(256)">
+      <stop stop-color="#8FA7FF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#8FA7FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="#090B10"/>
+  <circle cx="256" cy="256" r="188" fill="url(#glow)"/>
+  <circle cx="256" cy="256" r="142" stroke="url(#ring)" stroke-width="18"/>
+  <path d="M176 256C196.667 241.333 217.333 234 238 234C258.667 234 279.333 241.333 300 256C320.667 270.667 341.333 278 362 278" stroke="#F7F9FF" stroke-width="18" stroke-linecap="round"/>
+  <path d="M152 300C184 276 216.667 264 250 264C283.333 264 314.667 276 344 300C365.333 316 384.667 324 402 324" stroke="#8DA5FF" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="22" fill="#F7F9FF"/>
+</svg>

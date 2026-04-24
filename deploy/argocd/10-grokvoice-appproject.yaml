@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: grokvoice
+  namespace: argocd
+spec:
+  description: Grok Voice static site managed from the grokvoice repository
+  sourceRepos:
+    - https://github.com/gateszhangc/grokvoice.git
+  destinations:
+    - namespace: grokvoice
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"

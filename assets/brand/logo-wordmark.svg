@@ -1,0 +1,22 @@
+<svg width="1600" height="480" viewBox="0 0 1600 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Grok Voice wordmark</title>
+  <desc id="desc">Dark futuristic wordmark with a circular voice signal emblem and the words Grok Voice.</desc>
+  <defs>
+    <linearGradient id="signalStroke" x1="104" y1="92" x2="308" y2="296" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F8FF"/>
+      <stop offset="1" stop-color="#6F8BFF"/>
+    </linearGradient>
+    <radialGradient id="signalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(188 188) rotate(90) scale(188)">
+      <stop stop-color="#869FFF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#869FFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="480" rx="72" fill="transparent"/>
+  <circle cx="188" cy="188" r="164" fill="url(#signalGlow)"/>
+  <circle cx="188" cy="188" r="123" stroke="url(#signalStroke)" stroke-width="12"/>
+  <path d="M120 188C137.333 176 154.667 170 172 170C189.333 170 206.667 176 224 188C241.333 200 258.667 206 276 206" stroke="#F5F8FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M102 222C128 202 154.333 192 181 192C208.333 192 234.667 202 260 222C277.333 235.333 293.333 242 308 242" stroke="#90A8FF" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="188" cy="188" r="16" fill="#F5F8FF"/>
+  <text x="372" y="204" fill="#F5F7FB" font-size="156" font-family="'Avenir Next Condensed', 'Avenir Next', sans-serif" font-weight="700" letter-spacing="-4">GROK</text>
+  <text x="372" y="336" fill="#BAC5D6" font-size="132" font-family="'Avenir Next Condensed', 'Avenir Next', sans-serif" font-weight="600" letter-spacing="10">VOICE</text>
+</svg>

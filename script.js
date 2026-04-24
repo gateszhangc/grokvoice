@@ -1,41 +1,35 @@
 const topbar = document.querySelector("[data-topbar]");
-const filterButtons = Array.from(document.querySelectorAll(".filter-button"));
-const wallpaperCards = Array.from(document.querySelectorAll(".wallpaper-card"));
-const resultsCount = document.querySelector("[data-results-count]");
 const yearNode = document.querySelector("#current-year");
+const modeButtons = Array.from(document.querySelectorAll("[data-mode-trigger]"));
+const modePanels = Array.from(document.querySelectorAll("[data-mode-panel]"));
 
-const updateResults = (filter) => {
-  let visible = 0;
-
-  wallpaperCards.forEach((card) => {
-    const tags = (card.dataset.tags || "").split(" ");
-    const matches = filter === "all" || tags.includes(filter);
-    card.hidden = !matches;
-    if (matches) visible += 1;
+const setActiveMode = (nextMode) => {
+  modeButtons.forEach((button) => {
+    const isActive = button.dataset.modeTrigger === nextMode;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
   });
 
-  if (resultsCount) {
-    resultsCount.textContent = `Showing ${visible} wallpaper${visible === 1 ? "" : "s"}`;
-  }
+  modePanels.forEach((panel) => {
+    const isActive = panel.dataset.modePanel === nextMode;
+    panel.classList.toggle("is-active", isActive);
+    panel.hidden = !isActive;
+  });
 };
 
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((entry) => entry.classList.remove("is-active"));
-    button.classList.add("is-active");
-    updateResults(button.dataset.filter || "all");
-  });
+modeButtons.forEach((button) => {
+  button.addEventListener("click", () => setActiveMode(button.dataset.modeTrigger || "agent"));
 });
-
-if (yearNode) {
-  yearNode.textContent = new Date().getFullYear();
-}
 
 const handleScroll = () => {
   if (!topbar) return;
-  topbar.classList.toggle("is-scrolled", window.scrollY > 12);
+  topbar.classList.toggle("is-scrolled", window.scrollY > 10);
 };
 
 window.addEventListener("scroll", handleScroll, { passive: true });
 handleScroll();
-updateResults("all");
+setActiveMode("agent");
+
+if (yearNode) {
+  yearNode.textContent = String(new Date().getFullYear());
+}

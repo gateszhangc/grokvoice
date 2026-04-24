@@ -1,0 +1,65 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ${JOB_NAME}
+  namespace: ${K8S_BUILD_NAMESPACE}
+  labels:
+    app.kubernetes.io/component: image-build
+    app.kubernetes.io/name: grokvoice
+    app.kubernetes.io/part-of: grokvoice
+spec:
+  ttlSecondsAfterFinished: ${K8S_JOB_TTL_SECONDS}
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: image-build
+        app.kubernetes.io/name: grokvoice
+        app.kubernetes.io/part-of: grokvoice
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: source
+          emptyDir: {}
+        - name: docker-config
+          secret:
+            secretName: ${K8S_DOCKER_CONFIG_SECRET}
+      initContainers:
+        - name: clone-source
+          image: alpine/git:2.47.2
+          command:
+            - /bin/sh
+            - -ec
+            - |
+              git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" /workspace/source
+              cd /workspace/source
+              git fetch --depth 1 origin "${GITHUB_SHA}"
+              git checkout "${GITHUB_SHA}"
+          volumeMounts:
+            - name: source
+              mountPath: /workspace/source
+      containers:
+        - name: kaniko
+          image: gcr.io/kaniko-project/executor:v1.23.2-debug
+          command:
+            - /busybox/sh
+            - -ec
+            - |
+              /kaniko/executor \
+                --context=dir:///workspace/source \
+                --dockerfile=/workspace/source/${DOCKERFILE_PATH} \
+                --destination="${IMAGE_NAME}:${IMAGE_TAG}" \
+                --cache=true \
+                --cache-repo="${CACHE_REPO}" \
+                --snapshot-mode=redo \
+                --use-new-run
+          env:
+            - name: IMAGE_REPOSITORY
+              value: ${IMAGE_NAME}
+            - name: IMAGE_TAG
+              value: ${IMAGE_TAG}
+          volumeMounts:
+            - name: source
+              mountPath: /workspace/source
+            - name: docker-config
+              mountPath: /kaniko/.docker

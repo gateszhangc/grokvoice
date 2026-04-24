@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grokvoice-www-redirect
+  namespace: grokvoice
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/permanent-redirect: https://grokvoice.homes
+    nginx.ingress.kubernetes.io/permanent-redirect-code: "308"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - www.grokvoice.homes
+      secretName: grokvoice-live-tls
+  rules:
+    - host: www.grokvoice.homes
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grokvoice
+                port:
+                  number: 80
