@@ -9,4 +9,4 @@ resources:
 images:
   - name: registry.144.91.77.245.sslip.io/grokvoice
     newName: registry.144.91.77.245.sslip.io/grokvoice
-    newTag: bootstrap
+    newTag: 9c693c4bcc9180cf99e62eb1fd23be794385449b
